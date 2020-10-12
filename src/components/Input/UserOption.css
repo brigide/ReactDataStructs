@@ -1,0 +1,22 @@
+.option{
+    margin-top: 5px;
+}
+
+button{
+    margin-left: 5px;
+    width: 70px;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 900px) {
+    .options{
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-right: 1px solid #000;;
+    }
+}

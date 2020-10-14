@@ -1,12 +1,13 @@
-import React, {Fragment} from 'react';
-import DLLPage from '../components/DLLPage';
+import React from 'react';
+import Routes from './Routes';
 import Menu from '../components/Menu/Menu';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 
 
 export default props =>
-    <Fragment> 
+    <BrowserRouter> 
       <Menu />
-      <DLLPage/>
-    </Fragment>
+      <Routes/>
+    </BrowserRouter>
    

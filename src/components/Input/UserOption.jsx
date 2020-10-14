@@ -12,9 +12,13 @@ export default props =>
                placeholder = {`Element to ${props.operation}`}
         />
 
-        <button onClick={() => props.click(parseInt(props.value))} 
+        <button onClick={() => {    props.click[0](parseInt(props.value)); 
+                                    props.click[1]()
+                               }
+                        } 
                 disabled={!props.value}>
             {props.operation} 
         </button>
         
     </div>
+                                    

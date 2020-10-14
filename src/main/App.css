@@ -17,3 +17,67 @@ body{
     box-sizing: border-box;
 
 }
+
+
+.structure-space{
+    display: flex;
+    background-color: white;
+    min-height: 50%;
+    max-width: 80%;
+    border-radius: 15px;
+    box-shadow: 20px 10px #deddd9;
+}
+
+.clearBtn{
+    margin-top: 10px;
+}
+
+.structure-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 70%;
+}
+
+@media screen and (max-width: 900px) {
+    .structure-space{
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 50px;
+    }
+}
+
+.option{
+    margin-top: 5px;
+}
+
+@media screen and (min-width: 900px) {
+    .options{
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-right: 1px solid #000;;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .options{
+        padding: 1em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid #000;;
+        box-sizing: border-box;
+    }
+
+    .structure-content{
+        padding: 1em;
+    }
+}

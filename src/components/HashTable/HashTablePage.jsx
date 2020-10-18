@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import UserOption from '../Input/UserOption';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+//import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import MyHashTable from '../../classes/HashTable';
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
     values: []
 }
 
-export default class DLLPage extends Component{
+export default class HashTablePage extends Component{
 
     state = {...initialState};
 
@@ -21,6 +21,10 @@ export default class DLLPage extends Component{
         this.updateRemoveField = this.updateRemoveField.bind(this);
         this.updateFoundElement = this.updateFoundElement.bind(this);
         this.setUpdatedValues = this.setUpdatedValues.bind(this);
+        MyHashTable.insert = MyHashTable.insert.bind(MyHashTable);
+        MyHashTable.remove = MyHashTable.remove.bind(MyHashTable);
+        MyHashTable.search = MyHashTable.search.bind(MyHashTable);
+        MyHashTable.clear = MyHashTable.clear.bind(MyHashTable);
     }
 
     componentDidMount(){
@@ -56,19 +60,22 @@ export default class DLLPage extends Component{
                     <UserOption operation="insert" 
                                 value={this.state.insertFieldContent} 
                                 change={this.updateInsertField} 
+                                click={[MyHashTable.insert, () => {}]}
                                 />
 
                     <UserOption operation="remove" 
                                 value={this.state.removeFieldContent} 
-                                change={this.updateRemoveField} 
+                                change={this.updateRemoveField}
+                                click={[MyHashTable.remove, () => {}]} 
                                 />
 
                     <UserOption operation="search" 
                                 value={this.state.searchFieldContent} 
-                                change={this.updateSearchField} 
+                                change={this.updateSearchField}
+                                click={[MyHashTable.search, () => {}]}
                                 />
 
-                    <button className="clearBtn">clear</button>
+                    <button className="clearBtn" onClick={() => { MyHashTable.clear();  this.setUpdatedValues()}}>clear</button>
                 </div>
 
 

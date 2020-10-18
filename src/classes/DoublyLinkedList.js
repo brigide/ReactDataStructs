@@ -1,10 +1,12 @@
+
+
 function Node(){
     this.value = null;
     this.previous = null;
     this.next = null;
 }
 
-class DoublyLinkedList{
+export class DoublyLinkedList{
 
     constructor(){
         this.first = null;

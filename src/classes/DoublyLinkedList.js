@@ -4,7 +4,7 @@ function Node(){
     this.next = null;
 }
 
-let empytDLL = {
+let emptyDLL = {
     first: null,
     last: null,
     n: 0
@@ -13,7 +13,7 @@ let empytDLL = {
 export class DoublyLinkedList{
 
     constructor(){
-        Object.assign(this, {...empytDLL})
+        Object.assign(this, emptyDLL)
     }
 
     insert(value){
@@ -132,7 +132,7 @@ export class DoublyLinkedList{
     }
 
     clear(){
-        Object.assign(this, {...empytDLL})
+        Object.assign(this, emptyDLL)
     } 
 }
 

@@ -1,5 +1,3 @@
-
-
 function Node(){
     this.value = null;
     this.previous = null;
@@ -31,7 +29,6 @@ export class DoublyLinkedList{
         else
             this.first = newNode;
         
-
         if (currentNode)
             prevNode = newNode;
         else
@@ -88,7 +85,6 @@ export class DoublyLinkedList{
             i++;
         }
         
-
         if (currentNode)
          return currentNode.value === value ? i : -1;
         return -1; 
@@ -99,7 +95,6 @@ export class DoublyLinkedList{
         let i;
         for (i = 0; tmp != null; i++)
           tmp = tmp.next;
-
 
         return i; 
     }
@@ -120,11 +115,7 @@ export class DoublyLinkedList{
         for(let i = 0; i < this.getSize(); i++)
             valuesList.push(this.getAtIndex(i));
         
-
-        console.log(valuesList)
-        
         return valuesList;
-    
     }
 
     print(){

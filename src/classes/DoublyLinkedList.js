@@ -118,14 +118,6 @@ export class DoublyLinkedList{
         return valuesList;
     }
 
-    print(){
-        let tmp = this.first;
-        while (tmp) {
-          console.log(`${tmp.value} `);
-          tmp = tmp.next;
-        }
-    }
-
     clear(){
         Object.assign(this, emptyDLL)
     } 

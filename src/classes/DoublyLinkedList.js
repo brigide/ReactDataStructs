@@ -4,12 +4,16 @@ function Node(){
     this.next = null;
 }
 
+let empytDLL = {
+    first: null,
+    last: null,
+    n: 0
+};
+
 export class DoublyLinkedList{
 
     constructor(){
-        this.first = null;
-        this.last = null;
-        this.n = 0;
+        Object.assign(this, {...empytDLL})
     }
 
     insert(value){
@@ -86,7 +90,8 @@ export class DoublyLinkedList{
         }
         
         if (currentNode)
-         return currentNode.value === value ? i : -1;
+            return currentNode.value === value ? i : -1;
+
         return -1; 
     }
 
@@ -127,9 +132,7 @@ export class DoublyLinkedList{
     }
 
     clear(){
-        this.first = null;
-        this.last  = null;
-        this.n = 0;
+        Object.assign(this, {...empytDLL})
     } 
 }
 

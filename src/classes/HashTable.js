@@ -55,7 +55,7 @@ class HashTable{
     search(value){
         let key = this.hash(value);
         let pos = this.dlls[key].search(value);
-        if(pos == -1){
+        if(pos === -1){
             return -1;
         }
         return [key, pos];

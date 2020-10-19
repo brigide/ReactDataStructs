@@ -96,12 +96,7 @@ export class DoublyLinkedList{
     }
 
     getSize(){
-        let tmp = this.first;
-        let i;
-        for (i = 0; tmp != null; i++)
-          tmp = tmp.next;
-
-        return i; 
+        return this.n;
     }
 
     getAtIndex(index){

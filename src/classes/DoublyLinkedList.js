@@ -129,6 +129,7 @@ export class DoublyLinkedList{
     clear(){
         this.first = null;
         this.last  = null;
+        this.n = 0;
     } 
 }
 

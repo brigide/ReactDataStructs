@@ -8,7 +8,7 @@ export default () =>
             <ul className="nav-items">
                 <li className="nav-item"><Link to="dll">Double Linked List</Link></li>
                 <li className="nav-item"><Link to="hash">Hash Table</Link></li>
-                <li className="nav-item"><Link to="binTree">Binary Tree</Link></li>        
+                <li className="nav-item"><Link to="heap">Heap</Link></li>        
             </ul>
         </div>
     </nav>

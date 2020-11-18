@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
-import {View, TouchableOpacity, Text, TextInput} from 'react-native';
+import {View, TouchableOpacity, Text, TextInput, ScrollView} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 
-import AwesomeHierarchyGrap from 'react-native-d3-tree-graph';
-
 import {Feather} from '@expo/vector-icons';
 
-import Form from '../../components/Form';
+import Node from './components/Node';
 
 export default function Home(){
     const navigation = useNavigation();
@@ -82,9 +80,20 @@ export default function Home(){
 
             </View>
 
-            <View style={styles.data}>
-                <Text>{value}</Text>
-            </View>
+            <ScrollView style={styles.data} showsVerticalScrollIndicator={false}>
+                <Node />
+                <Node />
+                <Node />
+                <Node />
+                <Node />
+                <Node />
+                <Node />
+                <Node />
+                <Node />
+                <Node />
+                <Node />
+                <Node />
+            </ScrollView>
         </View>
     );
 }

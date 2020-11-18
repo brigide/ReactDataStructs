@@ -44,9 +44,10 @@ export default StyleSheet.create({
     },
 
     data: {
-        marginTop: 10,
+        justifyContent: 'center',
+        marginTop: 20,
         borderColor: 'red',
         borderWidth: 1,
-        height: '65%'
+        height: '60%'
     },
 });

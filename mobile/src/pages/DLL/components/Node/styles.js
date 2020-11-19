@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native';
 import Constants from 'expo-constants'; // para saber o tamanho da status bar do dispositivo executado
 
 export default StyleSheet.create({
+    side: {
+        flexDirection: 'row',
+    },
+
     node: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -21,5 +25,14 @@ export default StyleSheet.create({
         borderColor: 'black',
         width: 80,
         height: 60,
-    }
+    },
+
+    sideArrows: {
+        marginLeft: 10,
+    },
+
+    downArrows: {
+        flexDirection: 'row',
+    },
+
 });

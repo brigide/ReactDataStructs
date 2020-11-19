@@ -44,10 +44,15 @@ export default StyleSheet.create({
     },
 
     data: {
-        justifyContent: 'center',
         marginTop: 20,
         borderColor: 'red',
-        borderWidth: 1,
+        borderWidth: 0,
         height: '60%'
+    },
+
+    dataRow: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
     },
 });

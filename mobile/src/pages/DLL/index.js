@@ -81,18 +81,20 @@ export default function Home(){
             </View>
 
             <ScrollView style={styles.data} showsVerticalScrollIndicator={false}>
-                <Node />
-                <Node />
-                <Node />
-                <Node />
-                <Node />
-                <Node />
-                <Node />
-                <Node />
-                <Node />
-                <Node />
-                <Node />
-                <Node />
+                <View style={styles.dataRow}>
+                    <Node hasSideArrows={true} hasDownArrows={false} />
+                    <Node hasSideArrows={false} hasDownArrows={true} />
+                    <Node hasSideArrows={true} hasDownArrows={true} />
+                    <Node hasSideArrows={false} hasDownArrows={false} />
+                    <Node hasSideArrows={true} hasDownArrows={false} />
+                    <Node hasSideArrows={false} hasDownArrows={true} />
+                    <Node hasSideArrows={true} hasDownArrows={true} />
+                    <Node hasSideArrows={false} hasDownArrows={false} />
+                    <Node hasSideArrows={true} hasDownArrows={false} />
+                    <Node hasSideArrows={false} hasDownArrows={true} />
+                    <Node hasSideArrows={true} hasDownArrows={false} />
+                    <Node hasSideArrows={false} hasDownArrows={false} />
+                </View>
             </ScrollView>
         </View>
     );

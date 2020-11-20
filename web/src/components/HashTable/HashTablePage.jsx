@@ -1,93 +1,130 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import UserOption from '../Input/UserOption';
-//import {CSSTransition, TransitionGroup} from 'react-transition-group';
-import MyHashTable from '../../classes/HashTable';
-
-const initialState = {
-    insertFieldContent: null,
-    removeFieldContent: null,
-    searchFieldContent: null,
-    values: []
-}
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
+import HashBuckets from './HashComponent/HashBuckets/HashBuckets';
+import BucketItem from './HashComponent/HashBuckets/BucketItem/BucketItem';
+import HashComponent from './HashComponent/HashComponent';
+import DLLNode from '../DoublyLinkedList/Node/DLLNode';
+import './HashTablePage.css';
+import MyHash from '../../classes/HashTable';
 
 
+export default function HashTablePage(){
+
+    const [insertField, setInsertField] = useState(0);
+    const [searchField, setSearchField] = useState(0);
+    const [removeField, setRemoveField] = useState(0);
+    const [HashValues, setHashValues] = useState(getRenderedStructureComponent(MyHash.values()));
 
 
-export class HashTablePage extends Component{
+    useEffect(() => {
+        document.title = "Hash";
+    }, [])
 
-    state = {...initialState};
 
-    constructor(props){
-        super(props);
-        this.updateInsertField = this.updateInsertField.bind(this);
-        this.updateSearchField = this.updateSearchField.bind(this);
-        this.updateRemoveField = this.updateRemoveField.bind(this);
-        this.updateFoundElement = this.updateFoundElement.bind(this);
-        this.setUpdatedValues = this.setUpdatedValues.bind(this);
-        MyHashTable.insert = MyHashTable.insert.bind(MyHashTable);
-        MyHashTable.remove = MyHashTable.remove.bind(MyHashTable);
-        MyHashTable.search = MyHashTable.search.bind(MyHashTable);
-        MyHashTable.clear = MyHashTable.clear.bind(MyHashTable);
+    function resetFoundNodeStyle(){
+        let oldSelectedElements = Array.from(document.querySelectorAll(".DLLnode.HashValue.found"));
+        oldSelectedElements.forEach(el => el.classList.remove("found"));
     }
 
-    componentDidMount(){
-        document.title = "Hash Table";
+
+    function updateFoundElement(element){
+
+        let hasFound = MyHash.search(element);
+
+        if(hasFound !== -1){
+            let domElements = Array.from(document.querySelectorAll('.DLLnode.HashValue h3'));
+            domElements.forEach(el => el.textContent === String(element) ? 
+                                        el.parentElement.parentElement.classList.add("found") 
+                                        : null);
+        }
+        
     }
 
-    updateInsertField(insertFieldContent){
-        this.setState({...this.state, insertFieldContent})
+
+    function getRenderedStructureComponent(){
+
+        resetFoundNodeStyle();
+
+        return (
+            <HashComponent>
+                <HashBuckets>
+
+                    <TransitionGroup component={null}>
+                        
+                            {MyHash.values().map( (element, idx) => {
+                                
+                                const [bucketIdx, bucketDLL] = element;
+                                
+                                return (
+                                    <CSSTransition timeout={500} classNames="fade" key={idx}>
+                                        <BucketItem bucketIdx={bucketIdx}>
+                                            
+                                            <TransitionGroup component={null}>
+
+                                                {bucketDLL.values().map((dllElement, nodeIdx, list) => 
+                                                    <CSSTransition timeout={500} classNames="fade" key={nodeIdx} >
+                                                        <DLLNode value={dllElement} 
+                                                            idx={nodeIdx} 
+                                                            isHashValue={true}
+                                                            hasArrows={true}
+                                                            type={nodeIdx === 0 ? "Head" : nodeIdx === list.length - 1 ? "Tail" : '' } />
+                                                    </CSSTransition>
+                                                )}
+
+                                            </TransitionGroup>
+
+                                        </BucketItem>
+                                    </CSSTransition>
+                                )
+
+                            })}
+                        
+                    </TransitionGroup>
+
+                </HashBuckets>
+            </HashComponent>
+        );        
     }
 
-    updateRemoveField(removeFieldContent){
-        this.setState({...this.state, removeFieldContent})
+    function setUpdatedValues(operation){
+        operation();
+
+        setHashValues(getRenderedStructureComponent());
     }
 
-    updateSearchField(searchFieldContent){
-        this.setState({...this.state, searchFieldContent})
-    }
 
-    updateFoundElement(element){
-
-    }
-
-    setUpdatedValues(){
-
-        //this.setState({...this.state, values});
-    }
-
-    render(){
-        return(
-            <div className="container structure-space">
-
-                <div className="options">
-                    <UserOption operation="insert" 
-                                value={this.state.insertFieldContent} 
-                                change={this.updateInsertField} 
-                                click={[MyHashTable.insert, () => {}]}
-                                />
-
-                    <UserOption operation="remove" 
-                                value={this.state.removeFieldContent} 
-                                change={this.updateRemoveField}
-                                click={[MyHashTable.remove, () => {}]} 
-                                />
-
-                    <UserOption operation="search" 
-                                value={this.state.searchFieldContent} 
-                                change={this.updateSearchField}
-                                click={[MyHashTable.search, () => {}]}
-                                />
-
-                    <button className="clearBtn" onClick={() => { MyHashTable.clear();  this.setUpdatedValues()}}>clear</button>
-                </div>
+    return(
+        <div className="container structure-space hash">
+            
+            <div className="options">
+                <UserOption operation="insert" 
+                            value={insertField} 
+                            change={e => setInsertField(parseInt(e.target.value))} 
+                            click={() => setUpdatedValues(() => MyHash.insert(insertField))}/>
 
 
+                <UserOption operation="remove" 
+                            value={removeField}
+                            change={e => setRemoveField(parseInt(e.target.value))} 
+                            click={() => setUpdatedValues(() => MyHash.remove(removeField))}/>
+                
+                <UserOption operation="search" 
+                            value={searchField} 
+                            change={e => setSearchField(parseInt(e.target.value))} 
+                            click={() => updateFoundElement(searchField)}/>
 
-                <div className="structure-content">
-
-                </div>
+                <button className="clearBtn" 
+                        onClick={() => setUpdatedValues(() => MyHash.clear())}>
+                            clear
+                </button>
 
             </div>
-        )
-    }
+
+            <div className="structure-content">
+                {HashValues}
+            </div>
+            
+        </div>
+    )
 }

@@ -9,6 +9,16 @@ export default StyleSheet.create({
         backgroundColor: '#e1e1e1',
     },
 
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+
+    clear: {
+        marginTop: 15,
+    },
+
     title: {
         marginTop: 20,
         color: '#151515',

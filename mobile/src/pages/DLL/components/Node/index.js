@@ -4,13 +4,13 @@ import styles from './styles';
 
 import {Feather} from '@expo/vector-icons';
 
-export default function Node({hasSideArrows, hasDownArrows}){
+export default function Node({hasSideArrows, hasDownArrows, value}){
     return (
         <View>
             <View style={{flexDirection: 'row'}}>
                 <View style={styles.node}>
                     <View style={styles.value}>
-                        <Text style={styles.text}>10</Text>
+                        <Text style={styles.text}>{value}</Text>
                     </View>
                 </View>
 

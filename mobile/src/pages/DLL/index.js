@@ -7,10 +7,15 @@ import {Feather} from '@expo/vector-icons';
 
 import Node from './components/Node';
 
-export default function Home(){
+import DoublyLinkedList from '../../classes/DoublyLinkedList';
+
+export default function DLL(){
     const navigation = useNavigation();
 
-    const [value, setValue] = useState(0);
+    //DoublyLinkedList.clear();
+
+    const [value, setValue] = useState();
+    const [values, setValues] = useState([]);
     const [insert, setInsert] = useState('');
     const [remove, setRemove] = useState('');
     const [search, setSearch] = useState('');
@@ -19,13 +24,24 @@ export default function Home(){
         navigation.goBack();
     }
 
+    function clear(){
+        DoublyLinkedList.clear();
+        setValues([]);
+    }
+
     function updateInsert(){
         setValue(insert);
-        setInsert('');
+        setInsert(''); 
+        console.log(insert);
+        DoublyLinkedList.insert(parseInt(value));
+        setUpdatedValues();
     }
+
     function updateRemove(){
         setValue(remove);
-        setRemove('');
+        setInsert('');
+        DoublyLinkedList.remove(parseInt(value));
+        setUpdatedValues();
     }
     function updateSearch(){
         setValue(search);
@@ -33,12 +49,32 @@ export default function Home(){
     }
 
 
+    function setUpdatedValues(){
+        let val = DoublyLinkedList.values().map((element, idx, list) => 
+            <Node 
+                hasSideArrows={idx % 2 === 0 && idx != list.length - 1 ? true : false} 
+                hasDownArrows={false} 
+                value={element} 
+                key={idx} />
+        )
+
+        setValues(val);
+    }
+
+
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={navigateBack}>
                 <Feather name="arrow-left" size={28} color="#56ccf6" />
-            </TouchableOpacity>    
-            <Text style={styles.title}>Double Linked List</Text>
+            </TouchableOpacity>   
+
+            <View style={styles.header}>
+                <Text style={styles.title}>Double Linked List</Text>
+                <TouchableOpacity style={styles.clear} onPress={clear}>
+                    <Feather name="trash" size={20} color="#56ccf6" />
+                </TouchableOpacity>
+            </View> 
 
             <View style={styles.form}>
 
@@ -82,18 +118,7 @@ export default function Home(){
 
             <ScrollView style={styles.data} showsVerticalScrollIndicator={false}>
                 <View style={styles.dataRow}>
-                    <Node hasSideArrows={true} hasDownArrows={false} />
-                    <Node hasSideArrows={false} hasDownArrows={true} />
-                    <Node hasSideArrows={true} hasDownArrows={true} />
-                    <Node hasSideArrows={false} hasDownArrows={false} />
-                    <Node hasSideArrows={true} hasDownArrows={false} />
-                    <Node hasSideArrows={false} hasDownArrows={true} />
-                    <Node hasSideArrows={true} hasDownArrows={true} />
-                    <Node hasSideArrows={false} hasDownArrows={false} />
-                    <Node hasSideArrows={true} hasDownArrows={false} />
-                    <Node hasSideArrows={false} hasDownArrows={true} />
-                    <Node hasSideArrows={true} hasDownArrows={false} />
-                    <Node hasSideArrows={false} hasDownArrows={false} />
+                    {values}
                 </View>
             </ScrollView>
         </View>

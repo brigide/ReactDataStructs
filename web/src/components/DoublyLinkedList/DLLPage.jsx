@@ -1,107 +1,98 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import UserOption from '../Input/UserOption';
 import DLLNode from './Node/DLLNode';
 import './DLLPage.css';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import MyDLL from '../../classes/DoublyLinkedList';
 
-const initialState = {
-    insertFieldContent: null,
-    removeFieldContent: null,
-    searchFieldContent: null,
-    values: []
-}
 
-export default class DLLPage extends Component{
+export default function DLLPage(){
+    const [insertField, setInsertField] = useState(0);
+    const [searchField, setSearchField] = useState(0);
+    const [removeField, setRemoveField] = useState(0);
+    const [DLLValues, setDLLValues] = useState(getStructureComponentRendered());
 
-    state = {...initialState};
-
-    constructor(props){
-        super(props);
-        this.updateInsertField = this.updateInsertField.bind(this);
-        this.updateSearchField = this.updateSearchField.bind(this);
-        this.updateRemoveField = this.updateRemoveField.bind(this);
-        this.updateFoundElement = this.updateFoundElement.bind(this);
-        this.setUpdatedValues = this.setUpdatedValues.bind(this);
-        MyDLL.insert = MyDLL.insert.bind(MyDLL);
-        MyDLL.remove = MyDLL.remove.bind(MyDLL);
-        MyDLL.clear = MyDLL.clear.bind(MyDLL);
-    }
-
-    componentDidMount(){
+    useEffect(() => {
         document.title = "Doubly Linked List";
-    }
+    }, [])
 
-    updateInsertField(insertFieldContent){
-        this.setState({...this.state, insertFieldContent})
-    }
 
-    updateRemoveField(removeFieldContent){
-        this.setState({...this.state, removeFieldContent})
-    }
-
-    updateSearchField(searchFieldContent){
-        this.setState({...this.state, searchFieldContent})
-    }
-
-    updateFoundElement(element){
-
-        let oldSelectedElements = Array.from(document.querySelectorAll(".node.found"));
+    function resetNodeFoundStyle(){
+        let oldSelectedElements = Array.from(document.querySelectorAll(".DLLnode.found"));
         oldSelectedElements.forEach(el => el.classList.remove("found"));
+    }
+
+    function updateFoundElement(element){
 
         let idx = MyDLL.search(element);
+
         if(idx !== -1){
-            let domElements = Array.from(document.querySelectorAll(`.el-${idx}`));
-            domElements.forEach(el => el.classList.add("found"));
+            let domElements = Array.from(document.querySelectorAll('.DLLnode h3'));
+            domElements.forEach(el => el.textContent === String(element) ? el.parentElement.parentElement.classList.add("found") : null);
         }
 
     }
 
-    setUpdatedValues(){
-        let values = MyDLL.values().map( (element, idx, list) => 
+
+    function getStructureComponentRendered(){
+
+        resetNodeFoundStyle();
+
+        return (
+            MyDLL.values().map( (element, idx, list) => 
                 <CSSTransition key={idx} timeout={500} classNames="fade">
                     <DLLNode value={element} 
                             idx={idx} 
-                             
+                            
                             hasArrows={idx !== 0}
                             type={idx === 0 ? "Head" : idx === list.length - 1 ? "Tail" : '' } />
                 </CSSTransition>
+            )
         )
 
-        this.setState({...this.state, values});
     }
 
-    render(){
-        return(
-            <div className="container structure-space">
-               
-                <div className="options">
-                    <UserOption operation="insert" 
-                                value={this.state.insertFieldContent} 
-                                change={this.updateInsertField} 
-                                click={[MyDLL.insert, this.setUpdatedValues]}/>
+    function setUpdatedValues(operation){
+        operation();
 
-                    <UserOption operation="remove" 
-                                value={this.state.removeFieldContent} 
-                                change={this.updateRemoveField} 
-                                click={[MyDLL.remove, this.setUpdatedValues]}/>
 
-                    <UserOption operation="search" 
-                                value={this.state.searchFieldContent} 
-                                change={this.updateSearchField} 
-                                click={[this.updateFoundElement, ()=>{}]}/>
+        setDLLValues(getStructureComponentRendered());
 
-                    <button className="clearBtn" onClick={() => { MyDLL.clear();  this.setUpdatedValues()}}>clear</button>
-                </div>
 
-                <div className="structure-content">
-                    <TransitionGroup component={null}>
-                        {this.state.values}
-                    </TransitionGroup>
-                </div>
-                
+    }
 
+
+    return(
+        <div className="container structure-space">
+            
+            <div className="options">
+                <UserOption operation="insert" 
+                            value={insertField} 
+                            change={e => setInsertField(parseInt(e.target.value))} 
+                            click={() => setUpdatedValues(() => MyDLL.insert(insertField))}/>
+
+                <UserOption operation="remove" 
+                            value={removeField} 
+                            change={e => setRemoveField(parseInt(e.target.value))} 
+                            click={() => setUpdatedValues(() => MyDLL.remove(removeField))}/>
+
+                <UserOption operation="search" 
+                            value={searchField} 
+                            change={e => setSearchField(parseInt(e.target.value))} 
+                            click={() => updateFoundElement(searchField)}/>
+
+                <button className="clearBtn" onClick={() => setUpdatedValues(() => MyDLL.clear())}>clear</button>
             </div>
-        )
-    }
+
+            <div className="structure-content">
+                <TransitionGroup component={null}>
+                    {DLLValues}
+                </TransitionGroup>
+            </div>
+            
+
+        </div>
+    )
 }
+
+

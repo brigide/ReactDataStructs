@@ -2,22 +2,19 @@ import React from 'react';
 import './UserOption.css'
 
 
-export default props => 
-    <div className={`${props.operation} option`}>
+export default ({operation, change, click, value}) => 
+    <div className={`${operation} option`}>
 
-        <input name= {props.operation}
+        <input name= {operation}
                type="number" 
-               value={!props.value ? '' : props.value}
-               onChange={e => props.change(e.target.value)} 
-               placeholder = {`Element to ${props.operation}`}
+               value={!value ? '' : value}
+               onChange={change} 
+               placeholder = {`Element to ${operation}`}
         />
 
-        <button onClick={() => {    props.click[0](parseInt(props.value)); 
-                                    props.click[1]()
-                               }
-                        } 
-                disabled={!props.value}>
-            {props.operation} 
+        <button onClick={click}
+                disabled={!value}>
+            {operation} 
         </button>
         
     </div>

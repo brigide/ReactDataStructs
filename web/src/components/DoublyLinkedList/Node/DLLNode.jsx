@@ -3,7 +3,7 @@ import { FaLongArrowAltRight, FaLongArrowAltLeft } from 'react-icons/fa';
 import './DLLNode.css';
 
 export default props => 
-    <div className={`node el-${props.idx}`}>
+    <div className={`DLLnode el-${props.idx}`}>
         <div className="value">
             <h3>{props.value}</h3>
             <h4>{props.type}</h4>

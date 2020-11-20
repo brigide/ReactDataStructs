@@ -47,34 +47,45 @@ export class DoublyLinkedList{
     }
 
     remove(value){
-        let prevNode = null;
-        let currentNode = this.first;
 
-        while (currentNode != null && currentNode.value < value) {
-            prevNode = currentNode;
-            currentNode = currentNode.next;
-        }
+        if(this.n === 0 || this.search(value) === -1)
+            return false;
 
-        if(currentNode.value === value){
-            if(prevNode){
-                prevNode.next = currentNode.next;
-                if (currentNode.next) 
-                    currentNode.next.previous = prevNode;
-                else 
-                    this.last = prevNode;
-            } else{
-                this.first = currentNode.next;
-                if (currentNode.next) 
-                    this.first.previous = null;
-                else 
-                    this.last = null;
+        let prevNode;
+        let currentNode;
+        
+        while(this.search(value) !== -1){
+            prevNode = null;
+            currentNode = this.first;
+
+            while (currentNode != null && currentNode.value < value) {
+                prevNode = currentNode;
+                currentNode = currentNode.next;
             }
 
-            this.n--;
-            return true;
-        }
+            if(currentNode.value === value){
+                if(prevNode){
+                    prevNode.next = currentNode.next;
+                    if (currentNode.next) 
+                        currentNode.next.previous = prevNode;
+                    else 
+                        this.last = prevNode;
+                } else{
+                    this.first = currentNode.next;
+                    if (currentNode.next) 
+                        this.first.previous = null;
+                    else 
+                        this.last = null;
+                }
 
-        return false;
+                this.n--;
+                
+            }
+        }
+        
+        return value;
+
+        
 
     }
 

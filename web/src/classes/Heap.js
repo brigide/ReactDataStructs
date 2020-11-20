@@ -1,5 +1,3 @@
-let data = {root: null};
-
 function Node(value){
     this.value = value;
     this.left = null;
@@ -8,12 +6,7 @@ function Node(value){
 
 class Heap{
     constructor(){
-        this.n = 0;
         this.v = [];
-    }
-
-    getV(){
-        return this.v;
     }
 
     getParentIndex(i){
@@ -107,8 +100,8 @@ class Heap{
         }
     }
 
-    search(){
-
+    search(value){
+        return this.values(value);
     }
 
     clear(){
@@ -117,12 +110,21 @@ class Heap{
     
 
 
-    values(){
+    values(desiredValue){
 
 
         let v = this.v.map(node => {
             return {
                 name: String(node.value), 
+                nodeSvgShape: (desiredValue !== undefined && node.value === desiredValue) ? {
+                    shape: 'circle',
+                    shapeProps:{
+                        r: 12,
+                        stroke: '#ad3603',
+                        strokeWidth: '6px',
+                        fill: '#ff5005'
+                    }
+                } : null
             }
         })
 
@@ -138,6 +140,9 @@ class Heap{
             if(!el.parent)
                 delete el.parent;
 
+            if(!el.nodeSvgShape)
+                delete el.nodeSvgShape;
+
             
             //checks if node has children
             el.children = (leftChild === undefined && rightChild === undefined) ? null : [
@@ -147,17 +152,15 @@ class Heap{
 
 
 
-            // if it has, filter the filled children, otherwise delete the object children property (the node is a leaf)
+            // if it has, filter the filled children, otherwise deletes the object children property (the node is a leaf)
             if (el.children)
                 el.children = el.children.filter(ch => ch)
             else 
                 delete el.children
             
         })
-        
 
         const hierarchicalObject = v[0];
-
 
         return hierarchicalObject;
 

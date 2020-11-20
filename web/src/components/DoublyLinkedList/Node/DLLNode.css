@@ -1,21 +1,26 @@
 
-.node{
+.DLLnode{
+    position: relative;
+
     height: 55px;
     width: 80px;
+
     border: 1px solid #000000;
+    border-radius: 5px;
+    
     margin-left: 10px; 
     margin-top: 10px;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
-    position: relative;
 }
 
 .found{
     border: 3px solid orange;
 }
 
-.node .value{
+.DLLnode .value{
     height: 100%;
     width: 60%;
     display: flex;

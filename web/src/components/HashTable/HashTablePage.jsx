@@ -10,7 +10,10 @@ const initialState = {
     values: []
 }
 
-export default class HashTablePage extends Component{
+
+
+
+export class HashTablePage extends Component{
 
     state = {...initialState};
 

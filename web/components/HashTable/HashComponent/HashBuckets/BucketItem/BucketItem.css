@@ -1,6 +1,5 @@
 .bucket-item{
     display: flex;
-    
 }
 
 .bucket-idx{
@@ -13,6 +12,8 @@
 }
 
 .bucket-item .DLLNodes {
+    position: relative;
+    bottom: 6px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

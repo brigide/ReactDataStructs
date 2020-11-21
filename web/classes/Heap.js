@@ -34,7 +34,7 @@ class Heap{
 
 
     insert(value){
-        if(value !== null && value !== undefined){
+        if(value && value !== undefined){
 
             let newNode = new Node(value);
 
@@ -116,6 +116,7 @@ class Heap{
         let v = this.v.map(node => {
             return {
                 name: String(node.value), 
+                //if the user is searching a value, apply the nodeSvgShape property
                 nodeSvgShape: (desiredValue !== undefined && node.value === desiredValue) ? {
                     shape: 'circle',
                     shapeProps:{
@@ -139,7 +140,8 @@ class Heap{
             //if not, deletes the object parent property (the node is the root)
             if(!el.parent)
                 delete el.parent;
-
+            
+            //if user is not searching a value or the value was not found, remove the nodeSvgProperty
             if(!el.nodeSvgShape)
                 delete el.nodeSvgShape;
 

@@ -66,7 +66,7 @@ export default function HeapPage(){
 
                             translate={{
                                 x: structureContentArea ? structureContentArea.clientWidth / 2 : null,
-                                y: structureContentArea ? structureContentArea.clientHeight / 2 : null
+                                y: structureContentArea ? structureContentArea.clientHeight / 4 : null
                             }}
 
                             data={{...values}}
@@ -103,12 +103,12 @@ export default function HeapPage(){
                             change={e => setSearchField(parseInt(e.target.value))} 
                             click={() => updateFoundElement(searchField)}/>
 
-                <button className="clearBtn" 
+                <button style={{marginTop: "10px"}}
                         onClick={() => setUpdatedValues(() => MyHeap.remove())}>
                             remove
                 </button>
 
-                <button className="clearBtn" 
+                <button style={{marginTop: "10px"}} 
                         onClick={() => setUpdatedValues(() => MyHeap.clear())}>
                             clear
                 </button>

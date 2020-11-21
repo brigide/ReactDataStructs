@@ -1,54 +1,22 @@
 import React, {useState, useEffect} from 'react';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
+//COMPONENTS
 import UserOption from '../Input/UserOption';
 import DLLNode from './Node/DLLNode';
-import './DLLPage.css';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import DLLReport from './DLLReport/DLLReport';
+
+//Structure singleton instance
 import MyDLL from '../../classes/DoublyLinkedList';
 
-/*function detectWrap(){
-  
-    var wrappedItems = [];
-    var prevItem = {};
-    var currItem = {};
-    var items = document.getElementsByClassName('DLLnode');
-  
-    for (var i = 0; i < items.length; i++) {
-      currItem = items[i].getBoundingClientRect();
-      if (prevItem && prevItem.top < currItem.top) {
-        wrappedItems.push(items[i]);
-      }
-      prevItem = currItem;
-    };
-
-    if (wrappedItems.length % 2 == 1)
-        reverseOddRow(wrappedItems[wrappedItems.length - 1]);
-}
-
-function reverseOddRow(FlexChild){
-
-    let firstFlexChild = parseInt(FlexChild.classList[1].split("-")[1]);
-    const oldLastFlexChild = document.querySelector(".structure-content.DLL").lastChild;
-
-    let i = 0;
-    while(true){
-        let currFlexChild = document.querySelector(`.el-${firstFlexChild+i}`);
-        let currLastChild = document.querySelector(".structure-content.DLL").lastChild;
-        console.log(i)
-        if(currFlexChild === oldLastFlexChild) break;
-
-        document.querySelector(".structure-content.DLL").insertBefore(currFlexChild, currLastChild.nextSibling )
-        
-        i++;
-    }
-
-    
-}*/
 
 export default function DLLPage(){
     const [insertField, setInsertField] = useState(0);
     const [searchField, setSearchField] = useState(0);
     const [removeField, setRemoveField] = useState(0);
     const [DLLValues, setDLLValues] = useState(getStructureComponentRendered());
+
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         document.title = "Doubly Linked List";
@@ -65,7 +33,7 @@ export default function DLLPage(){
         let hasFound = MyDLL.search(element);
 
         if(hasFound){
-            let domElements = Array.from(document.querySelectorAll('.DLLnode h3'));
+            let domElements = Array.from(document.querySelectorAll('.DLLnode .node-value'));
             domElements.forEach(el => el.textContent === String(element) ? 
                                         el.parentElement.parentElement.classList.add("found") 
                                         : null);
@@ -75,6 +43,7 @@ export default function DLLPage(){
 
 
     function getStructureComponentRendered(){
+
 
         resetFoundNodeStyle();
 
@@ -94,6 +63,7 @@ export default function DLLPage(){
     }
 
     function setUpdatedValues(operation){
+
         operation();
 
 
@@ -121,7 +91,14 @@ export default function DLLPage(){
                             change={e => setSearchField(parseInt(e.target.value))} 
                             click={() => updateFoundElement(searchField)}/>
 
-                <button className="clearBtn" onClick={() => setUpdatedValues(() => MyDLL.clear())}>clear</button>
+                <button style={{marginTop: "10px"}} 
+                        onClick={() => setUpdatedValues(() => MyDLL.clear())}>clear</button>
+            
+
+            <button className="btn-primary" onClick={() => setShowModal(true)}>See more</button>
+
+            {showModal ? <DLLReport onClose={() => setShowModal(false)}/> : null}
+
             </div>
 
             <div className="structure-content DLL">

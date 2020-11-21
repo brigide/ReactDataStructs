@@ -5,8 +5,8 @@ import './DLLNode.css';
 export default ({idx, value, type, hasArrows, isHashValue}) => 
     <div className={`DLLnode el-${idx} ${isHashValue ? 'HashValue' : ''}`}>
         <div className="value">
-            <h3>{value}</h3>
-            <h4>{type}</h4>
+            <h3 className="node-value">{value}</h3>
+            <h4 className="node-type">{type}</h4>
         </div>
 
         <div className="arrows" style={{display: hasArrows ? '' : 'none'}}>

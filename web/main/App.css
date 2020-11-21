@@ -31,9 +31,7 @@ body{
     box-shadow: 20px 10px #deddd9;
 }
 
-.clearBtn{
-    margin-top: 10px;
-}
+
 
 #treeWrapper{
     min-width: 100%;
@@ -51,19 +49,61 @@ body{
     overflow: auto;
 }
 
-@media screen and (max-width: 900px) {
-    .structure-space{
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        top: 50px;
-        max-height: 80%;
-    }
 
-}
 
 .option{
     margin-top: 5px;
+}
+
+body{
+    margin: 0;
+}
+
+
+.fade-enter {
+    opacity: 0.01;
+  }
+  
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-exit {
+  
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
+}
+
+.btn-primary{
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+
+    padding: 5px;
+
+    line-height: 1.5;
+    border-radius: .2rem;
+    margin-top: 1em;
+    width: max-content;
+
+    box-shadow: 3px 3px 14px -5px rgba(0,0,0,0.75);
+
+    transition: .2s all ease;
+}
+
+.btn-primary:hover{
+    background-color: #043468;
+    transition: .2s all ease;
+}
+
+.btn-primary:focus{
+    outline: none;
+    
 }
 
 @media screen and (min-width: 900px) {
@@ -94,3 +134,13 @@ body{
     }
 }
 
+@media screen and (max-width: 900px) {
+    .structure-space{
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 50px;
+        max-height: 80%;
+    }
+
+}

@@ -10,21 +10,23 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 7,
-        width: 110,
-        height: 60,
+        width: 180,
+        height: 90,
         borderWidth: 1,
-        borderColor: 'black',
         marginTop: 0,
-        marginBottom: 30
+        marginBottom: 0
+    },
+
+    found: {
+        borderColor: '#FFFF00'
     },
     
     value: {
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: 'black',
-        width: 80,
-        height: 60,
+        width: 120,
+        height: 90,
     },
 
     sideArrows: {

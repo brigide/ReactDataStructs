@@ -63,6 +63,7 @@ export default StyleSheet.create({
     dataRow: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        marginBottom: 30,
     },
 });

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, TouchableOpacity, Text, TextInput, ScrollView} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
@@ -12,13 +12,13 @@ import DoublyLinkedList from '../../classes/DoublyLinkedList';
 export default function DLL(){
     const navigation = useNavigation();
 
-    //DoublyLinkedList.clear();
-
-    const [value, setValue] = useState();
+    const [found, setFound] = useState();
     const [values, setValues] = useState([]);
-    const [insert, setInsert] = useState('');
-    const [remove, setRemove] = useState('');
-    const [search, setSearch] = useState('');
+    const [insert, setInsert] = useState();
+    const [remove, setRemove] = useState();
+    const [search, setSearch] = useState();
+
+    useEffect(() => getNodes(), [found]);
 
     function navigateBack(){
         navigation.goBack();
@@ -26,41 +26,43 @@ export default function DLL(){
 
     function clear(){
         DoublyLinkedList.clear();
+        setFound(-1);
         setValues([]);
     }
 
-    function updateInsert(){
-        setValue(insert);
-        setInsert(''); 
-        console.log(insert);
-        DoublyLinkedList.insert(parseInt(value));
-        setUpdatedValues();
+    function updateFoundElement(operation, setField, value){
+        let idx = operation();
+
+        setField('');
+
+        if(parseInt(idx) !== -1){
+            setFound(value);
+        }
+
+        //setFound('');
     }
 
-    function updateRemove(){
-        setValue(remove);
-        setInsert('');
-        DoublyLinkedList.remove(parseInt(value));
-        setUpdatedValues();
-    }
-    function updateSearch(){
-        setValue(search);
-        setSearch('');
-    }
-
-
-    function setUpdatedValues(){
+    function getNodes(){
         let val = DoublyLinkedList.values().map((element, idx, list) => 
             <Node 
-                hasSideArrows={idx % 2 === 0 && idx != list.length - 1 ? true : false} 
-                hasDownArrows={false} 
+                hasSideArrows={false} 
+                hasDownArrows={idx === list.length - 1 ? false : true} 
                 value={element} 
-                key={idx} />
+                found={found}
+                idx={idx}
+                key={idx}
+            />
         )
 
         setValues(val);
     }
 
+    function setUpdatedValues(operation, setField){
+        operation();
+        setField('');
+
+        getNodes();
+    }
 
 
     return (
@@ -85,7 +87,7 @@ export default function DLL(){
                         placeholder="Insert" 
                         placeholderTextColor="#525252"
                         onChangeText={(text) => setInsert(text)}></TextInput>
-                    <TouchableOpacity onPress={updateInsert} style={styles.btn}>
+                    <TouchableOpacity onPress={() => setUpdatedValues(() => DoublyLinkedList.insert(parseInt(insert)), setInsert)} style={styles.btn}>
                         <Feather name="arrow-right" size={28} color="#e1e1e1" />
                     </TouchableOpacity>  
                 </View>
@@ -97,7 +99,7 @@ export default function DLL(){
                         placeholder="Remove" 
                         placeholderTextColor="#525252"
                         onChangeText={(text) => setRemove(text)}></TextInput>
-                    <TouchableOpacity onPress={updateRemove} style={styles.btn}>
+                    <TouchableOpacity onPress={() => setUpdatedValues(() => DoublyLinkedList.remove(parseInt(remove)), setRemove)} style={styles.btn}>
                         <Feather name="arrow-right" size={28} color="#e1e1e1" />
                     </TouchableOpacity>  
                 </View>
@@ -109,7 +111,7 @@ export default function DLL(){
                         placeholder="Search" 
                         placeholderTextColor="#525252"
                         onChangeText={(text) => setSearch(text)}></TextInput>
-                    <TouchableOpacity onPress={updateSearch} style={styles.btn}>
+                    <TouchableOpacity onPress={() => updateFoundElement(() => DoublyLinkedList.search(parseInt(search)), setSearch, parseInt(search))} style={styles.btn}>
                         <Feather name="arrow-right" size={28} color="#e1e1e1" />
                     </TouchableOpacity>  
                 </View>

@@ -1,0 +1,22 @@
+.bucket-item{
+    display: flex;
+}
+
+.bucket-idx{
+    min-width: 6em;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+.bucket-item .DLLNodes {
+    position: relative;
+    bottom: 6px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+

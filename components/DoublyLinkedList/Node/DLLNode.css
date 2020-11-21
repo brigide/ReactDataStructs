@@ -1,0 +1,61 @@
+.DLLnode{
+    position: relative;
+
+    height: 55px;
+    width: 80px;
+
+    border: 1px solid #000000;
+    border-radius: 5px;
+    
+    margin-left: 10px; 
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    transition: .5s all ease;
+}
+
+.found{
+    border: 3px solid #ff9900;
+    background-color: #fff2cc;
+    transition: .5s all ease;
+}
+
+
+.DLLnode .value{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #535252;
+    border-left: 1px solid #535252;
+}
+
+.found .value{
+    border-width: 0 2px;
+    border-style: solid;
+    border-color: #ff9900;
+
+}
+
+.value h3, .value h4{
+    margin: 0;
+}
+
+.value h4{
+    font-size: 10px;
+    color: #d17e02;
+}
+
+
+.arrows{
+    position: absolute;
+    align-self: flex-start;
+    top: 2px;
+    left: -20px;
+}
+

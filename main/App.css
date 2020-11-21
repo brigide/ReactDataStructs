@@ -1,0 +1,146 @@
+
+  
+body{
+    margin: 0;
+    background-color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#root{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    margin: 0 auto;
+    min-width: 90%;
+    box-sizing: border-box;
+
+}
+
+
+.structure-space{
+    display: flex;
+    background-color: white;
+    min-height: 50%;
+    max-height: 70%;
+    max-width: 80%;
+    border-radius: 15px;
+    box-shadow: 20px 10px #deddd9;
+}
+
+
+
+#treeWrapper{
+    min-width: 100%;
+    height: 100%;
+}
+
+.structure-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    width: 70%;
+    overflow: auto;
+}
+
+
+
+.option{
+    margin-top: 5px;
+}
+
+body{
+    margin: 0;
+}
+
+
+.fade-enter {
+    opacity: 0.01;
+  }
+  
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-exit {
+  
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
+}
+
+.btn-primary{
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+
+    padding: 5px;
+
+    line-height: 1.5;
+    border-radius: .2rem;
+    margin-top: 1em;
+    width: max-content;
+
+    box-shadow: 3px 3px 14px -5px rgba(0,0,0,0.75);
+
+    transition: .2s all ease;
+}
+
+.btn-primary:hover{
+    background-color: #043468;
+    transition: .2s all ease;
+}
+
+.btn-primary:focus{
+    outline: none;
+    
+}
+
+@media screen and (min-width: 900px) {
+    .options{
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-right: 1px solid #000;;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .options{
+        padding: 1em;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid #000;;
+        box-sizing: border-box;
+    }
+
+    .structure-content{
+        padding: 1em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .structure-space{
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 50px;
+        max-height: 80%;
+    }
+
+}

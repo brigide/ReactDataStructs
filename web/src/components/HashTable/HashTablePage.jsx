@@ -46,7 +46,7 @@ export default function HashTablePage(){
         let hasFound = MyHash.search(element);
 
         if(hasFound !== -1){
-            let domElements = Array.from(document.querySelectorAll('.DLLnode.HashValue h3'));
+            let domElements = Array.from(document.querySelectorAll('.DLLnode.HashValue .node-value'));
             domElements.forEach(el => el.textContent === String(element) ? 
                                         el.parentElement.parentElement.classList.add("found") 
                                         : null);

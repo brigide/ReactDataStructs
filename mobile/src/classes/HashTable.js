@@ -52,6 +52,12 @@ class HashTable{
         return ret;
     }
 
+    values(){
+        return this.dlls.map((dlls, bucketIdx) => 
+            [`Bucket ${bucketIdx}`, dlls]
+        );
+    }
+
     search(value){
         let key = this.hash(value);
         let pos = this.dlls[key].search(value);

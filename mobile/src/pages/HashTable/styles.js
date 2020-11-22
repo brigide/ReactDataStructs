@@ -9,6 +9,16 @@ export default StyleSheet.create({
         backgroundColor: '#e1e1e1',
     },
 
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+
+    clear: {
+        marginTop: 15,
+    },
+
     title: {
         marginTop: 20,
         color: '#151515',
@@ -19,7 +29,12 @@ export default StyleSheet.create({
     form: {
         marginTop: 20
     },
-
+    
+    inputView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    
     input: {
         borderColor: '#56ccf6',
         borderWidth: 1,
@@ -27,5 +42,32 @@ export default StyleSheet.create({
         paddingVertical: 5,
         paddingHorizontal: 5,
         marginBottom: 5,
+        width: '85%'
+    },
+    
+    btn: {
+        backgroundColor: '#56ccf6',
+        borderRadius: 5,
+        paddingVertical: 5,
+        paddingHorizontal: 5,
+        marginBottom: 5,
+    },
+
+    data: {
+        marginTop: 20,
+        borderColor: 'red',
+        borderWidth: 0,
+        height: '60%'
+    },
+
+    dataRow: {
+        flexDirection: 'column',
+    },
+
+    dll: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 8,
     },
 });

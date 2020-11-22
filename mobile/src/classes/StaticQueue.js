@@ -8,7 +8,7 @@ class StaticQueue {
     }
 
     enqueue (value) {
-        if ((this.end + 1) % this.max == this.begin)
+        if ((this.end + 1) % this.max === this.begin)
             return false;
 
         this.v[this.end] = value;
@@ -18,7 +18,7 @@ class StaticQueue {
     }
 
     dequeue () {
-        if (this.begin == this.end) 
+        if (this.begin === this.end) 
             return false;
 
         this.begin = (this.begin + 1) % this.max;
@@ -26,10 +26,23 @@ class StaticQueue {
         return true;
     }
 
-    values(){
+    search(value){
         for(let i = this.begin; i < this.end; i++){
-            console.log(this.v[i]);
+            if (this.v[i] === value)
+                return true 
         }
+
+        return false;
+    }
+
+
+    values(){
+        const queueValues = []
+
+        for(let i = this.begin, j = 0; i < this.end; i++, j++)
+            queueValues[j] = this.v[i];
+        
+        return queueValues;
     }
 
     clear () {
@@ -39,3 +52,4 @@ class StaticQueue {
 };
 
 
+export default new StaticQueue();

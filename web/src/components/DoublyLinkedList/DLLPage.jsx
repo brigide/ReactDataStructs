@@ -26,6 +26,7 @@ const WelcomeModal = ({onClose}) =>
                 <li><a href="https://github.com/brigide" target="_blank">Bruno Brigide</a></li>
             </ul>
         </div>
+        
     </Modal>
 
 
@@ -115,13 +116,12 @@ export default function DLLPage(){
 
                 <button style={{marginTop: "10px"}} 
                         onClick={() => setUpdatedValues(() => MyDLL.clear())}>clear</button>
-            
 
-            <button className="btn-primary" onClick={() => setShowModal(true)}>See more</button>
+                <button className="btn-primary" onClick={() => setShowModal(true)}>See more</button>
 
-            {showModal ? <DLLReport onClose={() => setShowModal(false)}/> : null}
+                {showModal ? <DLLReport onClose={() => setShowModal(false)}/> : null}
 
-            {showWelcome ? <WelcomeModal onClose={() => setWelcome(false)}/> : null}
+                {showWelcome ? <WelcomeModal onClose={() => setWelcome(false)}/> : null}
 
             </div>
 

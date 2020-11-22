@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import StrucutreModal from '../../Modal/Modal';
 
-import pdfFile from './HashReport.pdf';
+import pdfFile from './HeapReport.pdf';
 
 import {FiArrowLeft, FiArrowRight} from 'react-icons/fi'
 
@@ -18,7 +18,7 @@ export default ({onClose}) => {
     }
 
 
-    return <StrucutreModal modalTitle="Hash Table" onClose={() => onClose()}>
+    return <StrucutreModal modalTitle="Heap" onClose={() => onClose()}>
 
         <Document file={pdfFile} onLoadSuccess={onDocumentLoadSuccess} >
             <Page pageNumber={pageNumber} />

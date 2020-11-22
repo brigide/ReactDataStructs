@@ -8,27 +8,24 @@ import './Modal.css';
 
 export default function Modal({modalTitle, onClose, children}){
 
-
     return (
-        <Fragment>
+        <Fragment>        
+            <div className="modal">
+                <Animated animationIn="bounce" animationOut="fadeOut" isVisible={true}>
+                    <h5 className="modal-title">{modalTitle}</h5>
 
-            
-                <div className="modal">
-                    <Animated animationIn="bounce" isVisible={true}>
-                        <h5 className="modal-title">{modalTitle}</h5>
+                    <div className="modal-content" onSubmit={() =>{}}>
 
-                        <div className="modal-content" onSubmit={() =>{}}>
-
-                            <div className="structure-informations">
-                                {children}
-                            </div>
-
-                            <div className="modal-buttons">
-                                <button className="btn-primary" onClick={onClose}>Close</button>
-                            </div>
+                        <div className="structure-informations">
+                            {children}
                         </div>
-                    </Animated>
-                </div>
+
+                        <div className="modal-buttons">
+                            <button className="btn-primary" onClick={onClose}>Close</button>
+                        </div>
+                    </div>
+                </Animated>
+            </div>
            
 
             <div className="modal-bg" onClick={onClose}></div>

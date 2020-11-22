@@ -1,7 +1,12 @@
-import React, {Component, useState, useEffect} from 'react';
-import UserOption from '../Input/UserOption';
+import React, {useState, useEffect} from 'react';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
+//Components
+import UserOption from '../Input/UserOption';
 import Tree from 'react-d3-tree';
+import HeapReport from './HeapReport/HeapReport';
+
+//Structure singleton instance
 import MyHeap from '../../classes/Heap';
 
 
@@ -11,6 +16,8 @@ export default function HeapPage(){
     const [insertField, setInsertField] = useState(0);
     const [searchField, setSearchField] = useState(0);
     const [HeapValues, setHeapValues] = useState(getRenderedStructureComponent(MyHeap.values()));
+
+    const [showModal, setShowModal] = useState(false);
 
 
     useEffect(() => {
@@ -37,6 +44,7 @@ export default function HeapPage(){
         return (
             MyHeap.values() !== undefined ? 
                 <CSSTransition timeout={500} classNames="fade"> 
+
                     <div id="treeWrapper">
             
                         <Tree 
@@ -74,6 +82,7 @@ export default function HeapPage(){
                         /> 
 
                     </div>
+
                 </CSSTransition> : []
         )
 
@@ -112,6 +121,10 @@ export default function HeapPage(){
                         onClick={() => setUpdatedValues(() => MyHeap.clear())}>
                             clear
                 </button>
+
+                <button className="btn-primary" onClick={() => setShowModal(true)}>See more</button>
+
+                {showModal ? <HeapReport onClose={() => setShowModal(false)}/> : null}
 
             </div>
 

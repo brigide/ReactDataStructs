@@ -7,7 +7,11 @@ import {Feather} from '@expo/vector-icons';
 export default function BucketItem({children, found, idx, hasArrows}){
     return (
         <View style={styles.bucketItem}>
-            <View style={styles.bucket}>
+            <View style={[styles.bucket,
+                {borderColor: found === idx ? '#216691' : 'black',
+                backgroundColor: found === idx ? '#56ccf6' : '#e1e1e1',
+                borderWidth: found === idx ? 2 : 1}]}>
+                <Text>Bucket</Text>
                 <Text>{idx}</Text>
             </View>
             <View style={{display: hasArrows ? 'flex' : 'none', marginTop: 5, marginLeft: -5}}>

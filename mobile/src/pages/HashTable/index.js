@@ -13,7 +13,8 @@ import BucketItem from '../HashTable/components/BucketItem';
 export default function DLL(){
     const navigation = useNavigation();
 
-    const [found, setFound] = useState();
+    const [foundkey, setFoundkey] = useState();
+    const [foundpos, setFoundpos] = useState();
     const [hash, setHash] = useState([]);
     const [dlls, setDlls] = useState([]);
     const [insert, setInsert] = useState();
@@ -29,16 +30,20 @@ export default function DLL(){
     function clear(){
         HashTable.clear();
         setFound(-1);
-        setValues([]);
+        setHash([]);
     }
 
     function updateFoundElement(operation, setField, value){
-        let idx = operation();
+        let [key, pos, element] = operation();
 
         setField('');
+        console.log("return da op: ", operation());
 
-        if(parseInt(idx) !== -1){
-            setFound(value);
+        if(parseInt(pos) !== false){
+            setFoundkey(key);
+            setFoundpos(element);
+            console.log("found key: ", foundkey);
+            console.log("found pos: ", foundpos);
         }
 
         //setFound('');
@@ -48,14 +53,14 @@ export default function DLL(){
         let hashItem = HashTable.values().map((element, idx) => {                     
             const [bucketIdx, bucketDLL] = element;
             return (
-            <BucketItem idx={bucketIdx} hasArrows={bucketDLL.getSize() === 0 ? false : true}>
+            <BucketItem idx={idx} hasArrows={bucketDLL.getSize() === 0 ? false : true} found={foundkey}>
                 <View style={styles.dll}>
                     {bucketDLL.values().map((element, idx, list) => 
                         <Node 
                             hasSideArrows={idx === list.length - 1 ? false : true} 
                             hasDownArrows={false} 
                             value={element}  
-                            found={found}
+                            found={foundpos}
                             idx={idx}
                             key={idx}
                         />)}
@@ -66,27 +71,12 @@ export default function DLL(){
         setHash(hashItem);
     }
 
-    function getNodes(){
-        let dll = HashTable.values().map((element, idx, list) => 
-            <Node 
-                hasSideArrows={false} 
-                hasDownArrows={idx === list.length - 1 ? false : true} 
-                value={element} 
-                found={found}
-                idx={idx}
-                key={idx}
-            />
-        )
-
-        setDlls(dll);
-    }
 
     function setUpdatedValues(operation, setField){
         operation();
         setField('');
 
         getHash();
-        console.log('aaaa');
     }
 
 

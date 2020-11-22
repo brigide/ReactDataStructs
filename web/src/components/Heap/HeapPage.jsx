@@ -13,8 +13,8 @@ import MyHeap from '../../classes/Heap';
 
 export default function HeapPage(){
 
-    const [insertField, setInsertField] = useState(0);
-    const [searchField, setSearchField] = useState(0);
+    const [insertField, setInsertField] = useState(undefined);
+    const [searchField, setSearchField] = useState(undefined);
     const [HeapValues, setHeapValues] = useState(getRenderedStructureComponent(MyHeap.values()));
 
     const [showModal, setShowModal] = useState(false);

@@ -22,9 +22,9 @@ import MyHash from '../../classes/HashTable';
 
 export default function HashTablePage(){
 
-    const [insertField, setInsertField] = useState(0);
-    const [searchField, setSearchField] = useState(0);
-    const [removeField, setRemoveField] = useState(0);
+    const [insertField, setInsertField] = useState(undefined);
+    const [searchField, setSearchField] = useState(undefined);
+    const [removeField, setRemoveField] = useState(undefined);
     const [HashValues, setHashValues] = useState(getRenderedStructureComponent(MyHash.values()));
 
     const [showModal, setShowModal] = useState(false);
@@ -112,17 +112,20 @@ export default function HashTablePage(){
             
             <div className="options">
                 <UserOption operation="insert" 
+                            minValue={0}
                             value={insertField} 
                             change={e => setInsertField(parseInt(e.target.value))} 
                             click={() => setUpdatedValues(() => MyHash.insert(insertField))}/>
 
 
                 <UserOption operation="remove" 
+                            minValue={0}
                             value={removeField}
                             change={e => setRemoveField(parseInt(e.target.value))} 
                             click={() => setUpdatedValues(() => MyHash.remove(removeField))}/>
                 
                 <UserOption operation="search" 
+                            minValue={0}
                             value={searchField} 
                             change={e => setSearchField(parseInt(e.target.value))} 
                             click={() => updateFoundElement(searchField)}/>

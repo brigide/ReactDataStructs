@@ -32,9 +32,9 @@ const WelcomeModal = ({onClose}) =>
 
 
 export default function DLLPage(){
-    const [insertField, setInsertField] = useState(0);
-    const [searchField, setSearchField] = useState(0);
-    const [removeField, setRemoveField] = useState(0);
+    const [insertField, setInsertField] = useState(undefined);
+    const [searchField, setSearchField] = useState(undefined);
+    const [removeField, setRemoveField] = useState(undefined);
     const [DLLValues, setDLLValues] = useState(getStructureComponentRendered());
     
     const [showWelcome, setWelcome] = useState(false);

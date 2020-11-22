@@ -1,11 +1,22 @@
+//LIBS
 import React, {useState, useEffect} from 'react';
-import UserOption from '../Input/UserOption';
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
+
+//COMPONENTS
+import UserOption from '../Input/UserOption';
+
+import HashComponent from './HashComponent/HashComponent';
 import HashBuckets from './HashComponent/HashBuckets/HashBuckets';
 import BucketItem from './HashComponent/HashBuckets/BucketItem/BucketItem';
-import HashComponent from './HashComponent/HashComponent';
+
+import HashReport from './HashReport/HashReport';
+
 import DLLNode from '../DoublyLinkedList/Node/DLLNode';
+
+//CSS
 import './HashTablePage.css';
+
+//Structure singleton instance
 import MyHash from '../../classes/HashTable';
 
 
@@ -15,6 +26,8 @@ export default function HashTablePage(){
     const [searchField, setSearchField] = useState(0);
     const [removeField, setRemoveField] = useState(0);
     const [HashValues, setHashValues] = useState(getRenderedStructureComponent(MyHash.values()));
+
+    const [showModal, setShowModal] = useState(false);
 
 
     useEffect(() => {
@@ -114,10 +127,14 @@ export default function HashTablePage(){
                             change={e => setSearchField(parseInt(e.target.value))} 
                             click={() => updateFoundElement(searchField)}/>
 
-                <button className="clearBtn" 
+                <button style={{marginTop: "10px"}}
                         onClick={() => setUpdatedValues(() => MyHash.clear())}>
                             clear
                 </button>
+
+                <button className="btn-primary" onClick={() => setShowModal(true)}>See more</button>
+
+                {showModal ? <HashReport onClose={() => setShowModal(false)}/> : null}
 
             </div>
 

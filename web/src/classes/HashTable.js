@@ -6,7 +6,7 @@ class HashTable{
     constructor(){
         this.n = 0;
         this.max = 10;
-        this.dlls = [];
+        this.dlls = []; 
         for(let i = 0; i < this.max; i++){
             this.dlls.push(new DoublyLinkedList());         
         }
@@ -50,6 +50,12 @@ class HashTable{
             }
         }
         return ret;
+    }
+
+    values(){
+        return this.dlls.map((dlls, bucketIdx) => 
+            [`Bucket ${bucketIdx}`, dlls]
+        );
     }
 
     search(value){

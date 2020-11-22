@@ -1,10 +1,10 @@
-function Node(){
-    this.value = null;
+function Node(value){
+    this.value = value;
     this.previous = null;
     this.next = null;
 }
 
-let emptyDLL = {
+const emptyDLL = {
     first: null,
     last: null,
     n: 0
@@ -17,13 +17,12 @@ export class DoublyLinkedList{
     }
 
     insert(value){
-        let newNode = new Node();
-        newNode.value = value;
+        let newNode = new Node(value);
         
         let prevNode = null;
         let currentNode = this.first;
 
-        while (currentNode != null && currentNode.value < value) {
+        while (currentNode && currentNode.value < value) {
             prevNode = currentNode;
             currentNode = currentNode.next;
         }
@@ -48,17 +47,17 @@ export class DoublyLinkedList{
 
     remove(value){
 
-        if(this.n === 0 || this.search(value) === -1)
+        if(this.n === 0 || !this.search(value))
             return false;
 
         let prevNode;
         let currentNode;
         
-        while(this.search(value) !== -1){
+        while(this.search(value)){
             prevNode = null;
             currentNode = this.first;
 
-            while (currentNode != null && currentNode.value < value) {
+            while (currentNode && currentNode.value < value) {
                 prevNode = currentNode;
                 currentNode = currentNode.next;
             }
@@ -67,7 +66,7 @@ export class DoublyLinkedList{
                 if(prevNode){
                     prevNode.next = currentNode.next;
                     if (currentNode.next) 
-                        currentNode.next.previous = prevNode;
+                        currentNode = prevNode;
                     else 
                         this.last = prevNode;
                 } else{
@@ -82,10 +81,9 @@ export class DoublyLinkedList{
                 
             }
         }
-        
-        return value;
 
         
+        return true;
 
     }
 
@@ -94,16 +92,14 @@ export class DoublyLinkedList{
             return false;
 
         let currentNode = this.first;
-        let i = 0;
-        while (currentNode != null && currentNode.value < value){ 
+        while (currentNode && currentNode.value < value)
             currentNode = currentNode.next;
-            i++;
-        }
+
         
         if (currentNode)
-            return currentNode.value === value ? i : -1;
+            return currentNode.value === value;
 
-        return -1; 
+        return false; 
     }
 
     getSize(){

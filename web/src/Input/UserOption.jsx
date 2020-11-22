@@ -2,21 +2,24 @@ import React from 'react';
 import './UserOption.css'
 
 
-export default ({operation, change, click, value, minValue}) => 
-    <div className={`${operation} option`}>
+export default ({operation, change, click, value, isNatural}) => {
+
+    const isInvalidValue = !Number.isInteger(value) || (isNatural && value < 0);
+
+    return <div className={`${operation} option`}>
 
         <input name= {operation}
                type="number"
-               value={(isNaN(value) || value === undefined) ? '' : value}
+               value={isInvalidValue ? '' : value}
                onChange={change} 
-               min={minValue !== undefined ? minValue : null}
                placeholder = {`Element to ${operation}`}
         />
 
         <button onClick={click}
-                disabled={(isNaN(value) || value === undefined)}>
+                disabled={isInvalidValue}>
             {operation} 
         </button>
         
     </div>
+}
                                     

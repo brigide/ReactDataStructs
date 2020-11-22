@@ -112,20 +112,20 @@ export default function HashTablePage(){
             
             <div className="options">
                 <UserOption operation="insert" 
-                            minValue={0}
+                            isNatural={true}
                             value={insertField} 
                             change={e => setInsertField(parseInt(e.target.value))} 
                             click={() => setUpdatedValues(() => MyHash.insert(insertField))}/>
 
 
                 <UserOption operation="remove" 
-                            minValue={0}
+                            isNatural={true}
                             value={removeField}
                             change={e => setRemoveField(parseInt(e.target.value))} 
                             click={() => setUpdatedValues(() => MyHash.remove(removeField))}/>
                 
                 <UserOption operation="search" 
-                            minValue={0}
+                            isNatural={true}
                             value={searchField} 
                             change={e => setSearchField(parseInt(e.target.value))} 
                             click={() => updateFoundElement(searchField)}/>

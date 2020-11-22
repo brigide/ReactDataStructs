@@ -22,8 +22,8 @@ const WelcomeModal = ({onClose}) =>
         <h3>If you want to know our job, access:</h3>
         <div className="authors">
             <ul>
-                <li><a href="https://github.com/GabrielBueno200" target="_blank">Gabriel Bueno</a></li>
-                <li><a href="https://github.com/brigide" target="_blank">Bruno Brigide</a></li>
+                <li><a href="https://github.com/GabrielBueno200" target="_blank" rel="noopener noreferrer">Gabriel Bueno</a></li>
+                <li><a href="https://github.com/brigide" target="_blank" rel="noopener noreferrer">Bruno Brigide</a></li>
             </ul>
         </div>
         

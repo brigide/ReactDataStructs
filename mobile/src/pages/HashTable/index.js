@@ -16,7 +16,6 @@ export default function DLL(){
     const [foundkey, setFoundkey] = useState();
     const [foundpos, setFoundpos] = useState();
     const [hash, setHash] = useState([]);
-    const [dlls, setDlls] = useState([]);
     const [insert, setInsert] = useState();
     const [remove, setRemove] = useState();
     const [search, setSearch] = useState();
@@ -29,31 +28,32 @@ export default function DLL(){
 
     function clear(){
         HashTable.clear();
-        setFound(-1);
+        setFoundkey(-1);
+        setFoundpos(false);
         setHash([]);
+        getHash();
     }
 
     function updateFoundElement(operation, setField, value){
         let [key, pos, element] = operation();
 
         setField('');
-        console.log("return da op: ", operation());
 
         if(parseInt(pos) !== false){
             setFoundkey(key);
             setFoundpos(element);
-            console.log("found key: ", foundkey);
-            console.log("found pos: ", foundpos);
         }
-
-        //setFound('');
+        getHash();
     }
 
     function getHash(){
         let hashItem = HashTable.values().map((element, idx) => {                     
             const [bucketIdx, bucketDLL] = element;
+            console.log("found key: ", foundkey);
+            console.log("found pos: ", foundpos);
+            console.log(idx);
             return (
-            <BucketItem idx={idx} hasArrows={bucketDLL.getSize() === 0 ? false : true} found={foundkey}>
+            <BucketItem idx={idx} hasArrows={bucketDLL.getSize() === 0 ? false : true} found={foundkey} key={idx}>
                 <View style={styles.dll}>
                     {bucketDLL.values().map((element, idx, list) => 
                         <Node 
@@ -67,7 +67,7 @@ export default function DLL(){
                 </View>
             </BucketItem>
         )})
-        
+
         setHash(hashItem);
     }
 

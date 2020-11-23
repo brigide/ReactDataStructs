@@ -10,11 +10,11 @@ export default function Node({hasSideArrows, hasDownArrows, value, found, idx}){
             <View style={{flexDirection: 'column', justifyContent: 'center'}}>
                 <View style={[styles.node,
                     {borderColor: found === value ? '#216691' : 'black',
-                    backgroundColor: found === value ? '#cffffd' : '#e1e1e1',
+                    backgroundColor: found === value ? '#56ccf6' : '#e1e1e1',
                     borderWidth: found === value ? 2 : 1}]}>
                     <View style={[styles.value,
                         {borderColor: found === value ? '#216691' : 'black',
-                        backgroundColor: found === value ? '#cffffd' : '#e1e1e1',
+                        backgroundColor: found === value ? '#56ccf6' : '#e1e1e1',
                         borderWidth: found === value ? 2 : 1}]}>
                         <Text style={styles.text}>{value}</Text>
                     </View>

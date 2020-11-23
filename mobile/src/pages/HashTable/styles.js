@@ -62,6 +62,7 @@ export default StyleSheet.create({
 
     dataRow: {
         flexDirection: 'column',
+        marginBottom: 20,
     },
 
     dll: {

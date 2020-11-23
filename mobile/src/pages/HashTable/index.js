@@ -20,7 +20,7 @@ export default function DLL(){
     const [remove, setRemove] = useState();
     const [search, setSearch] = useState();
 
-    useEffect(() => getHash(), []);
+    useEffect(() => getHash(), [foundkey]);
 
     function navigateBack(){
         navigation.goBack();
@@ -49,9 +49,6 @@ export default function DLL(){
     function getHash(){
         let hashItem = HashTable.values().map((element, idx) => {                     
             const [bucketIdx, bucketDLL] = element;
-            console.log("found key: ", foundkey);
-            console.log("found pos: ", foundpos);
-            console.log(idx);
             return (
             <BucketItem idx={idx} hasArrows={bucketDLL.getSize() === 0 ? false : true} found={foundkey} key={idx}>
                 <View style={styles.dll}>

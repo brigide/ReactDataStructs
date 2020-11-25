@@ -55,7 +55,8 @@ export default function Queue(){
             <QueueNode
                 key={idx}
                 first={first === idx ? true : false}
-                last={last === idx ? true : false}>
+                last={last === idx ? true : false}
+                found={found}>
                 {element === null ? null : element} 
             </QueueNode>
         )})

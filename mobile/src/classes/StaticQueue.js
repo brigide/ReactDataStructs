@@ -5,7 +5,7 @@ class StaticQueue {
         this.v = [];
         this.v[0] = null;
         this.begin = 0;
-        this.end = 0;
+        this.end = -2;
         this.firstIn = false;
     }
 
@@ -13,14 +13,14 @@ class StaticQueue {
         if ((this.end + 1) % this.max === this.begin)
             return false;
 
-        if(this.v[0] === null)
-            this.end--;
-
-        this.v[this.end] = value;
-
-        if(this.v[0] !== null)
+        if(this.end === -2){
+            this.end = 0;
+        }
+        else{
             this.end = (this.end + 1) % this.max;
-
+        }
+        this.v[this.end] = value;
+        
         return true;
     }
 
@@ -47,11 +47,21 @@ class StaticQueue {
         const queueValues = []
 
         for(let i = 0; i < this.max; i++){
-            if(i < this.begin || i > this.end){
-                queueValues[i] = null;
+            if(this.end >= this.begin){
+                if(i < this.begin || i > this.end){
+                    queueValues[i] = null;
+                }
+                else{
+                    queueValues[i] = this.v[i];
+                }
             }
             else{
-                queueValues[i] = this.v[i];
+                if(i <= this.end || i >= this.begin){
+                    queueValues[i] = this.v[i];
+                }
+                else{
+                    queueValues[i] = null;
+                }
             }
         }
         return queueValues;
@@ -66,8 +76,8 @@ class StaticQueue {
     }
 
     clear () {
-        this.end = 0;
-        this.begin = this.end;
+        this.end = -2;
+        this.begin = 0;
         this.v = [];
         this.v[0] = null;
         this.firstIn = false;

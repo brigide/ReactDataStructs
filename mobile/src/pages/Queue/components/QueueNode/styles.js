@@ -9,6 +9,8 @@ export default StyleSheet.create({
 
     arrow: {
         flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     queue: {
@@ -16,5 +18,7 @@ export default StyleSheet.create({
         height: 60,
         borderWidth: 1,
         borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 })

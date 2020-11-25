@@ -20,14 +20,14 @@ export default function Queue(){
     const [insert, setInsert] = useState();
     const [search, setSearch] = useState();
 
-    useEffect(() => getQueue(), [found]);
+    useEffect(() => getQueue(), [found, first, last]);
 
     function navigateBack(){
         navigation.goBack();
     }
 
     function clear(){
-        HashTable.clear();
+        StaticQueue.clear();
         setFound(-1);
         setQueue([]);
         setFirst(-1);

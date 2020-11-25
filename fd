@@ -1,0 +1,236 @@
+[33mcommit de9323ec038b990d55cbdd90b0777d8a76a58fee[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Bruno Osse <bruno.osse@invent.eng.br>
+Date:   Wed Nov 25 12:07:25 2020 -0300
+
+    started queue frontend
+
+[33mcommit ab8f35eb2c6d3b9f62765ba5f85e3ed482451d99[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Mon Nov 23 17:21:59 2020 -0300
+
+    fixed hash search
+
+[33mcommit 046d955e58e22dfa00e62d0d7649e5090cc2ed58[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Mon Nov 23 00:36:22 2020 -0300
+
+    minor fixes in found node design
+
+[33mcommit 36c79837cfe44e0883154d4530c60f60e5a767b1[m
+Merge: 5de518a 39c60a5
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Sun Nov 22 20:11:11 2020 -0300
+
+    Merge branch 'master' of https://github.com/brigide/ReactDataStructs into master
+
+[33mcommit 5de518a904f36e53232765d2f48030802c8d5d78[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Sun Nov 22 20:10:57 2020 -0300
+
+    started search function in hash table
+
+[33mcommit 39c60a5ec6d8b3d17813b1e065ac20ec001e1c37[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Nov 22 19:59:07 2020 -0300
+
+    Updated components
+
+[33mcommit d88d8db9d233398af7ffe3317f45464c24f580c0[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Nov 22 19:23:42 2020 -0300
+
+    Updated components
+
+[33mcommit 5468c5a0061691b333791f0a37395eab58f08b77[m
+Merge: 1a432c7 ccf78fb
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Sun Nov 22 18:32:52 2020 -0300
+
+    Merge branch 'master' of https://github.com/brigide/ReactDataStructs into master
+
+[33mcommit 1a432c7d14921cf1c2781865e3911d4667dac6ee[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Sun Nov 22 18:31:56 2020 -0300
+
+    started hash insert and remove
+
+[33mcommit ccf78fbe0b19f929c51f4b7cf693b7421c0b4e8d[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Nov 22 18:20:55 2020 -0300
+
+    Updated Hash table page
+
+[33mcommit fbecf12ac8b21a350fb5faa578e63e8a55509e02[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Nov 22 13:01:10 2020 -0300
+
+    Updated Static Queue class
+
+[33mcommit 2b40627eae4a6c35bf8bdbd959239c68dcb3d786[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Nov 22 12:51:48 2020 -0300
+
+    Finished Static Queue class
+
+[33mcommit 571d54d6f17e51baf2284901acee8b974710f26f[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Nov 22 12:01:57 2020 -0300
+
+    Added Heap Report
+
+[33mcommit 2c219c1c9b75711f1a1267d94edcabda8fb0915c[m
+Merge: 6719387 9b69c28
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Sun Nov 22 01:15:48 2020 -0300
+
+    fixed repo
+
+[33mcommit 67193870f6c712dde14602d90b2a5ddc08900e14[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Sun Nov 22 01:13:13 2020 -0300
+
+    fixed frontend web page
+
+[33mcommit 9b69c28b963876548341e944a965855327aca301[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sat Nov 21 20:55:50 2020 -0300
+
+    Updated Project
+
+[33mcommit 496285d332d1cc00d59534e5e44d7161b17d24f0[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sat Nov 21 20:54:00 2020 -0300
+
+    Updated Project
+
+[33mcommit 47c6636ce618f9bcf8184453af7890cb72871f88[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Sat Nov 21 19:38:06 2020 -0300
+
+    finished dll front
+
+[33mcommit e69cea679ef58e13805a54460d167039a604655d[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Fri Nov 20 20:17:28 2020 -0300
+
+    Updated project
+
+[33mcommit bd63e2eaf999aced78c5e56a62306843c4d26484[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Fri Nov 20 18:05:55 2020 -0300
+
+    Updated Hash Table page
+
+[33mcommit e42bee4ac53f5cda9df28db2b2570dcf72c573fc[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Fri Nov 20 17:57:37 2020 -0300
+
+    Updated bucket item style
+
+[33mcommit 6fc995fcc7daeaa91adba39a2e9babdccca7ebd1[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Fri Nov 20 17:46:10 2020 -0300
+
+    Updated Hash Structure
+
+[33mcommit c72eca95b39ef4085fd4953b3c579b1bba7fc091[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Thu Nov 19 22:54:26 2020 -0300
+
+    Updated web project
+
+[33mcommit 7270ca43f2180af93f2a57d2b52b8456795fe1c4[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Thu Nov 19 22:39:51 2020 -0300
+
+    started dynamic insert on DLL
+
+[33mcommit d53ead76ca16c8f938b8389401fe45bf6f703ffa[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Thu Nov 19 00:25:39 2020 -0300
+
+    finished node and pointers design
+
+[33mcommit 7fd391280c2feef0575ee2c875e2ab262b952a2c[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Tue Nov 17 22:31:49 2020 -0300
+
+    started dll node
+
+[33mcommit 48daa355cfee8cd97818f133665539d5b4f0c1ec[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Mon Nov 16 21:24:30 2020 -0300
+
+    fixed textinput onChanges and setValues
+
+[33mcommit d0c961ba304dd37e0093c8387a14048d6ce6440d[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Sun Nov 15 01:07:58 2020 -0300
+
+    started mobile app
+
+[33mcommit b3ab98277946244a0cc99a99dc71ae25b210d217[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Mon Nov 2 19:09:59 2020 -0300
+
+    Heap structure: insert, remove and clear
+
+[33mcommit cd2f4b6197655b69a889e9af7ae0a6bc958da235[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Oct 18 23:04:43 2020 -0300
+
+    Updated DLL class
+
+[33mcommit b519c86f7c8c55b6ca7605bd4886e19d05e24286[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Oct 18 22:59:29 2020 -0300
+
+    Updated DLL class
+
+[33mcommit 310f046323a348d2df6e3fb589d46ee71c7e1b85[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Oct 18 22:56:24 2020 -0300
+
+    Updated DLL class
+
+[33mcommit 5af59d3e97a403a2d061c7580403020f810d4f4e[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Oct 18 22:53:55 2020 -0300
+
+    Updated DLL and Hash Table classes
+
+[33mcommit 77eb37d5b1c7ad17b9182bdc65ecec685952541d[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Oct 18 22:36:55 2020 -0300
+
+    Update DLL
+
+[33mcommit 506f4eeec0649b16c060b9071b730938eac1507a[m
+Author: GabrielBueno200 <56837996+GabrielBueno200@users.noreply.github.com>
+Date:   Sun Oct 18 22:35:56 2020 -0300
+
+    Update DLL
+
+[33mcommit 4d9c015727e088baf94b103db55c57e8040579e8[m
+Author: brigide <brigidegd@gmail.com>
+Date:   Sun Oct 18 16:17:50 2020 -0300
+
+    fixed HashTable.search return
+
+[33mcommit 87ca30e5a8309d103c0f1737828093c64d13e71a[m
+Author: brigide <brigidegd@gmail.com>
+Date:   Sun Oct 18 16:12:10 2020 -0300
+
+    created HashTable class
+
+[33mcommit 79d5cf6cac2e51662cbb4c4c35a39cc74915c288[m
+Author: Bruno Brigide <brigidegd@gmail.com>
+Date:   Tue Oct 13 22:06:16 2020 -0300
+
+    Added HashTable to the App and fixed DLL state
+
+[33mcommit d2434ff0438887fa60aa638a4e031d9699ceac61[m
+Author: brigide <brigidegd@gmail.com>
+Date:   Mon Oct 12 11:00:48 2020 -0300
+
+    Created LDDE class and main App

@@ -3,16 +3,23 @@ class StaticQueue {
     constructor(){
         this.max = 10;
         this.v = [];
+        this.v[0] = null;
         this.begin = 0;
         this.end = 0;
+        this.firstIn = false;
     }
 
     enqueue (value) {
         if ((this.end + 1) % this.max === this.begin)
             return false;
 
+        if(this.v[0] === null)
+            this.end--;
+
         this.v[this.end] = value;
-        this.end = (this.end + 1) % this.max;
+
+        if(this.v[0] !== null)
+            this.end = (this.end + 1) % this.max;
 
         return true;
     }
@@ -59,7 +66,11 @@ class StaticQueue {
     }
 
     clear () {
+        this.end = 0;
         this.begin = this.end;
+        this.v = [];
+        this.v[0] = null;
+        this.firstIn = false;
     }
 
 };

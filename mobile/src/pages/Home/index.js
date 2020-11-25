@@ -14,8 +14,8 @@ export default function Home(){
         navigation.navigate('HashTable');
     }
 
-    function navigateToHeap(){
-        navigation.navigate('Heap');
+    function navigateToQueue(){
+        navigation.navigate('Queue');
     }
 
     return (
@@ -37,8 +37,8 @@ export default function Home(){
 
                 <TouchableOpacity
                     style={styles.item} 
-                    onPress={navigateToHeap}>
-                        <Text style={styles.btnText}>Heap</Text>
+                    onPress={navigateToQueue}>
+                        <Text style={styles.btnText}>Queue</Text>
                 </TouchableOpacity>
 
             </View>

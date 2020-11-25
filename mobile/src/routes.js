@@ -8,7 +8,7 @@ const AppStack = createStackNavigator(); //cria app de navegacao
 import Home from './pages/Home';
 import DLL from './pages/DLL';
 import HashTable from './pages/HashTable';
-import Heap from './pages/Heap';
+import Queue from './pages/Queue';
 
 export default function Routes(){
     return (
@@ -18,7 +18,7 @@ export default function Routes(){
                 <AppStack.Screen name="Home" component={Home}/>
                 <AppStack.Screen name="DLL" component={DLL}/>
                 <AppStack.Screen name="HashTable" component={HashTable}/>
-                <AppStack.Screen name="Heap" component={Heap}/>
+                <AppStack.Screen name="Queue" component={Queue}/>
             </AppStack.Navigator>
 
         </NavigationContainer>

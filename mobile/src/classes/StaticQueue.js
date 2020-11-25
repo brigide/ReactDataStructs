@@ -29,7 +29,7 @@ class StaticQueue {
     search(value){
         for(let i = this.begin; i < this.end; i++){
             if (this.v[i] === value)
-                return true 
+                return true;
         }
 
         return false;
@@ -39,10 +39,23 @@ class StaticQueue {
     values(){
         const queueValues = []
 
-        for(let i = this.begin, j = 0; i < this.end; i++, j++)
-            queueValues[j] = this.v[i];
-        
+        for(let i = 0; i < this.max; i++){
+            if(i < this.begin || i > this.end){
+                queueValues[i] = null;
+            }
+            else{
+                queueValues[i] = this.v[i];
+            }
+        }
         return queueValues;
+    }
+
+    getBegin(){
+        return this.begin;
+    }
+
+    getEnd(){
+        return this.end;
     }
 
     clear () {

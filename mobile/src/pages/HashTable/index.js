@@ -10,7 +10,7 @@ import Node from '../HashTable/components/Node';
 import HashTable from '../../classes/HashTable';
 import BucketItem from '../HashTable/components/BucketItem';
 
-export default function DLL(){
+export default function Hash(){
     const navigation = useNavigation();
 
     const [foundkey, setFoundkey] = useState();

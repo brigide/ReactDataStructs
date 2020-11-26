@@ -25,8 +25,10 @@ class StaticQueue {
     }
 
     dequeue () {
-        if (this.begin === this.end) 
-            return false;
+        if (this.begin === this.end){ 
+            this.clear();
+            return true;
+        }
 
         this.begin = (this.begin + 1) % this.max;
 

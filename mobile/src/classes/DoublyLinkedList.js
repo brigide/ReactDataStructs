@@ -1,5 +1,5 @@
-function Node(){
-    this.value = null;
+function Node(value){
+    this.value = value;
     this.previous = null;
     this.next = null;
 }
@@ -17,8 +17,7 @@ export class DoublyLinkedList{
     }
 
     insert(value){
-        let newNode = new Node();
-        newNode.value = value;
+        let newNode = new Node(value);
         
         let prevNode = null;
         let currentNode = this.first;
@@ -90,7 +89,7 @@ export class DoublyLinkedList{
 
     search (value) {
         if (this.n === 0) 
-            return false;
+            return -1;
 
         let currentNode = this.first;
         let i = 0;

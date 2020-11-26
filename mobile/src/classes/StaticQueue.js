@@ -34,7 +34,7 @@ class StaticQueue {
     }
 
     search(value){
-        for(let i = this.begin; i < this.end; i++){
+        for(let i = 0; i <= this.max; i++){
             if (this.v[i] === value)
                 return true;
         }

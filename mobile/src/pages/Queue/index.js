@@ -12,7 +12,7 @@ import StaticQueue from '../../classes/StaticQueue';
 export default function Queue(){
     const navigation = useNavigation();
 
-    const [found, setFound] = useState();
+    const [found, setFound] = useState(-1);
     const [first, setFirst] = useState();
     const [last, setLast] = useState();
     const [remove, setRemove] = useState();
@@ -50,7 +50,7 @@ export default function Queue(){
     }
 
     function getQueue(){
-        let queueItem = StaticQueue.values().map((element, idx) => {                     
+        let queueItem = StaticQueue.values().map((element, idx) => {                  
             return (
             <QueueNode
                 key={idx}

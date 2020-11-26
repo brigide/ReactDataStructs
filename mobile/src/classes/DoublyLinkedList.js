@@ -4,7 +4,7 @@ function Node(value){
     this.next = null;
 }
 
-let emptyDLL = {
+const emptyDLL = {
     first: null,
     last: null,
     n: 0

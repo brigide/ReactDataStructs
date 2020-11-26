@@ -90,9 +90,9 @@ export class DoublyLinkedList{
         }
         
         if (currentNode)
-            return currentNode.value === value ? i : -1;
+            return currentNode.value === value ? i : false;
 
-        return -1; 
+        return false; 
     }
 
     getSize(){

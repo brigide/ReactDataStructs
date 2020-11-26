@@ -35,11 +35,12 @@ export default function Hash(){
     }
 
     function updateFoundElement(operation, setField, value){
-        let [key, pos, element] = operation();
+        let ret = operation();
 
         setField('');
 
-        if(parseInt(pos) !== false){
+        if(ret !== false){
+            let [key, pos, element] = ret;
             setFoundkey(key);
             setFoundpos(element);
         }

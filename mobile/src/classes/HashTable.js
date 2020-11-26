@@ -43,6 +43,7 @@ class HashTable{
 
     remove(value){
         let key = this.hash(value);
+        console.log(key);
         let ret = this.dlls[key].remove(value);
         if(ret === true){
             if(this.dlls[key].getSize() === 1){

@@ -35,7 +35,7 @@ export default function DLL(){
 
         setField('');
 
-        if(parseInt(idx) !== false){
+        if(idx !== false){
             setFound(value);
         }
 

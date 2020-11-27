@@ -5,7 +5,7 @@ The project was developed as an college project to Data Structure (react web app
 ## Execution
 You have to install node.js (and create-react-app or create-react-native-app packages) and the project required dependencies (available in package.json)
 
-## Multiplataform content
+## Multiplatform content
 Since we've developed the application using both React js libs (Web and Native), you can run our app everywhere, in your PC or cellphone!
 
 

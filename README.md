@@ -14,7 +14,7 @@ Since we've developed the application using both React js libs (Web and Native),
 ![QueueMobile](https://user-images.githubusercontent.com/56837996/100400792-6e30ef00-3036-11eb-9f4c-87c568be246d.jpg)
 
 
-## Vídeo: Explaining the code
+## Video: Explaining the code
 In this video below you can watch how the code works (available in Portuguese Brazil only)
 [![youtubeVideo](http://img.youtube.com/vi/H8KYPN8KZYc/0.jpg)](http://www.youtube.com/watch?v=H8KYPN8KZYc "Data Structure Project")
 
